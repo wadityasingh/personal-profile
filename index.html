@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADITYA SINGH | Professional Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #2563eb;
+        --primary-dark: #1d4ed8;
+        --secondary: #7e22ce;
+        --light: #f8fafc;
+        --dark: #0f172a;
+        --gray: #116ae8;
+        --success: #10b981;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        padding: 10px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+      }
+
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        display: inline-block;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+
+      /* Header & Navigation */
+      .navbar {
+        padding: 20px 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 10px 0;
+        background-color: white;
+      }
+
+      .navbar-brand {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        font-size: 1.8rem;
+        color: var(--primary) !important;
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        color: var(--dark) !important;
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      #hero {
+        padding: 150px 0 100px;
+        background: linear-gradient(
+          135deg,
+          rgba(37, 99, 235, 0.05) 0%,
+          rgba(126, 34, 206, 0.05) 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-img {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(241, 90, 3, 0.15);
+        transform: perspective(1000px) rotateY(-5deg);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .hero-img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 80%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        opacity: 0.1;
+        z-index: 1;
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-text p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: var(--gray);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: white;
+        color: var(--primary);
+        font-size: 1.2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* About Section */
+      .about-content {
+        padding: 30px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .skill-item {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-weight: 500;
+        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+      }
+
+      /* Achievements Section */
+      .achievement-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .achievement-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .achievement-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      .achievement-icon i {
+        font-size: 2rem;
+        color: white;
+      }
+
+      .achievement-card h4 {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+      }
+
+      /* Projects Section */
+      .project-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-img {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .project-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .project-card:hover .project-img img {
+        transform: scale(1.1);
+      }
+
+      .project-content {
+        padding: 25px;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 15px 0;
+      }
+
+      .project-tag {
+        background: rgba(37, 99, 235, 0.1);
+        color: var(--primary);
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
+
+      /* Contact Section */
+      .contact-form {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .form-control {
+        padding: 12px 20px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        margin-bottom: 20px;
+        font-size: 1rem;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.25);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark);
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-col h4 {
+        color: white;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-col h4::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--primary);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+
+      .footer-links a {
+        color: var(--gray);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        margin-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--gray);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .hero-text h1 {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-text h1 {
+          font-size: 2.2rem;
+        }
+
+        .section {
+          padding: 70px 0;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-text h1 {
+          font-size: 1.8rem;
+        }
+
+        .navbar-nav {
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Aditya Singh</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#hero">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#achievements">Achievements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="container-fluid">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-content">
+            <h1>Hi, I'm ADITYA SINGH<br /> FROM  BASAL INSTITUTE OF ENGINERRING AND TECHNOLOGY</h1>
+            <p>
+              I create beautiful, functional, and user-centered digital
+              experiences that solve real problems and drive business growth.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#projects" class="btn btn-primary">View My Work</a>
+              <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+            </div>
+            <div class="social-links">
+              <a href="https://www.instagram.com/wadityasingh/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/918957190542?text=Hello%20Aditya%20Singh!" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-center">
+            <div class="hero-img">
+              <img
+                src="./2b773953-9e13-42c1-9707-5cb4cc2105a0 (1).jpg"
+                alt="ADITYA SINGH"
+                class="img-fluid"
+                
+
+    
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Me</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="about-content">
+              <div class="about-text">
+                <p>
+                  Hello! I'm Aditya, a passionate UI/UX designer with over 0 years
+                  of experience creating digital products that people love to
+                  use. I specialize in transforming complex problems into
+                  simple, beautiful, and intuitive user experiences.
+                </p>
+                <p>
+                  My design philosophy centers around empathy, user research,
+                  and iterative prototyping. I believe that great design is not
+                  just about aesthetics but about solving real user problems and
+                  creating meaningful interactions.
+                </p>
+                <p>
+                  When I'm not designing, you can find me hiking in the
+                  mountains, experimenting with new recipes, or contributing to
+                  open-source design projects.
+                </p>
+              </div>
+              <div class="skills">
+                <div class="skill-item">UI/UX Design</div>
+                <div class="skill-item">User Research</div>
+                <div class="skill-item">Prototyping</div>
+                <div class="skill-item">Figma</div>
+                <div class="skill-item">Adobe XD</div>
+                <div class="skill-item">Design Systems</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex align-items-center">
+            <div class="about-stats w-100">
+              <div class="row text-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                  <div class="display-4 fw-bold text-primary">50+</div>
+                  <p class="mt-2">Projects Completed</p>
+                </div>
+                <div class="col-md-6">
+                  <div class="display-4 fw-bold text-primary">98%</div>
+                  <p class="mt-2">Client Satisfaction</p>
+                </div>
+              </div>
+              <div class="row text-center mt-5">
+                <div class="col-md-6 mb-4 mb-md-0">
+                  <div class="display-4 fw-bold text-primary">7+</div>
+                  <p class="mt-2">Years Experience</p>
+                </div>
+                <div class="col-md-6">
+                  <div class="display-4 fw-bold text-primary">15+</div>
+                  <p class="mt-2">Happy Clients</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>Key Achievements</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="achievement-card">
+              <div class="achievement-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <h4>Design Award Winner</h4>
+              <p>
+                Received the prestigious "Best UI Design" award at the 2022
+                Global Design Awards for the FinTech app "MoneyFlow".
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="achievement-card">
+              <div class="achievement-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <h4>30% Conversion Increase</h4>
+              <p>
+                Redesigned the e-commerce checkout flow for "ShopEasy",
+                resulting in a 30% increase in conversion rates and $2M+
+                additional revenue.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="achievement-card">
+              <div class="achievement-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h4>Team Leadership</h4>
+              <p>
+                Successfully led a team of 8 designers to deliver a complete
+                design system for a Fortune 500 company, adopted across 15+
+                products.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="achievement-card">
+              <div class="achievement-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <h4>Published Author</h4>
+              <p>
+                Authored "Designing for Humans: A Practical Guide to Empathetic
+                UX" which has sold over 10,000 copies worldwide.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="achievement-card">
+              <div class="achievement-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h4>Mentorship Program</h4>
+              <p>
+                Founded a mentorship program that has helped over 200 junior
+                designers launch their careers in the tech industry.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="achievement-card">
+              <div class="achievement-icon">
+                <i class="fas fa-globe-americas"></i>
+              </div>
+              <h4>International Speaker</h4>
+              <p>
+                Featured speaker at 12+ international design conferences
+                including UX London, Design Matters, and Adobe MAX.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured Projects</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="project-card">
+              <div class="project-img">
+                <img
+                  src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80"
+                  alt="Project 1"
+                />
+              </div>
+              <div class="project-content">
+                <h4>MoneyFlow App</h4>
+                <p>
+                  A revolutionary personal finance app that helps users track
+                  spending, set budgets, and achieve financial goals through
+                  intuitive visualization.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">UI/UX Design</span>
+                  <span class="project-tag">Mobile App</span>
+                  <span class="project-tag">Fintech</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Case Study</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="project-card">
+              <div class="project-img">
+                <img
+                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+                  alt="Project 2"
+                />
+              </div>
+              <div class="project-content">
+                <h4>ShopEasy Redesign</h4>
+                <p>
+                  Complete overhaul of the e-commerce platform to improve user
+                  experience, reduce cart abandonment, and increase conversion
+                  rates.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">E-commerce</span>
+                  <span class="project-tag">Web Design</span>
+                  <span class="project-tag">UX Research</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Case Study</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="project-card">
+              <div class="project-img">
+                <img
+                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80"
+                  alt="Project 3"
+                />
+              </div>
+              <div class="project-content">
+                <h4>HealthTrack Platform</h4>
+                <p>
+                  A comprehensive health monitoring platform that connects
+                  patients with healthcare providers through seamless
+                  telemedicine experiences.
+                </p>
+                <div class="project-tags">
+                  <span class="project-tag">Healthcare</span>
+                  <span class="project-tag">Dashboard</span>
+                  <span class="project-tag">User Research</span>
+                </div>
+                <a href="#" class="btn btn-primary">View Case Study</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+      <div class="container">
+        <div class="section-title">
+          <h2>Get In Touch</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="contact-form">
+              <form id="contactForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Subject"
+                  required
+                />
+                <textarea
+                  class="form-control"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+                <button type="submit" class="btn btn-primary w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+            <h4>CONNECT TO ADITYA THROUGH SOCIAL MEDIA</h4>
+            <p>
+             Click The Below Go On My Social Media Account Direct[D.M.]
+            </p>
+           <div class="social-links mt-4">
+  <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://wadityasingh.com/" target="_blank"><i class="fab fa-github"></i></a>
+  
+ 
+  <a href="https://www.instagram.com/wadityasingh/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="https://wa.me/918957190542?text=Hello%20Aditya%20Singh!" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#achievements">Achievements</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <h4>Services</h4>
+            <ul class="footer-links">
+              <li><a href="#">UI/UX Design</a></li>
+              <li><a href="#">User Research</a></li>
+              <li><a href="#">Prototyping</a></li>
+              <li><a href="#">Design Systems</a></li>
+              <li><a href="#">Design Consulting</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4>Contact Info</h4>
+            <ul class="footer-links">
+              <li><i class="fas fa-envelope me-2"></i> sadityasingh6275520@gmail.com</li>
+              <li><i class="fas fa-phone me-2"></i> +91 8957190542</li>
+              <li><i class="fas whatsapp me-2"></i> +91 7307273516</li>
+              <li>
+                <i class="fas fa-map-marker-alt me-2"></i> GORAKHNATH,GORAKHPUR
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 ADITYA SINGH. [JAI SHREE RAM].</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          // In a real implementation, you would send the form data to a server
+          alert("Thank you for your message! I will get back to you soon.");
+          this.reset();
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
